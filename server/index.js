@@ -60,7 +60,15 @@ app.put("/beer/:id", async (req, res) => {
   }
 });
 //delete
-app.delete;
+app.delete("/beer/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    await pool.query("DELETE FROM drinks WHERE review_id = $1", [id]);
+    res.json("t'was deleted");
+  } catch (error) {
+    console.log(error);
+  }
+});
 
 app.listen(port, () => {
   console.log(` server listening on port ${port}`);
