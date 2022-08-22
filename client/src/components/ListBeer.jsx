@@ -13,6 +13,7 @@ const ListBeer = () => {
       console.log(error);
     }
   };
+
   useEffect(() => {
     getter();
   }, []);
@@ -25,18 +26,21 @@ const ListBeer = () => {
           .slice()
           .reverse()
           .map((des) => (
-            <div className="input-card">
-              <br />
-              <p>{des.review_id}</p>
-              <br />
-              <p>{des.beer_name}</p>
-              <br />
-              <p>{des.brewery_name}</p>
-              <br />
-              <p>{des.style}</p>
-              <br />
-              <p>{des.descriptions}</p>
-            </div>
+            <article>
+              <div className="card">
+                <br />
+                {des.review_id}
+                <br />
+                {des.beer_name}
+                <br />
+                {des.brewery_name}
+                <br />
+                {des.style}
+                <br />
+                {des.descriptions}
+                <button>Delete</button>
+              </div>
+            </article>
           ))}
       </div>
     </Fragment>
