@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import "./Input.css";
 
-const Input = () => {
+const InputBeer = () => {
   return (
     <Fragment>
       <h1>Beered.co.jp</h1>
@@ -31,4 +31,4 @@ const Input = () => {
   );
 };
 
-export default Input;
+export default InputBeer;
