@@ -22,7 +22,6 @@ app.post("/beer", async (req, res) => {
   }
 });
 //getall
-
 app.get("/beer", async (req, res) => {
   try {
     // const { beer_name, brewery_name, style, descriptions } = req.body;
@@ -32,6 +31,7 @@ app.get("/beer", async (req, res) => {
     console.log(error);
   }
 });
+//get by id
 app.get("/beer/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -46,7 +46,19 @@ app.get("/beer/:id", async (req, res) => {
   }
 });
 //put(update)
-app.put;
+app.put("/beer/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { beer_name, brewery_name, style, descriptions } = req.body;
+    await pool.query(
+      "UPDATE drinks SET beer_name = $1, brewery_name = $2, style = $3, descriptions = $4 WHERE review_id = $5 ",
+      [beer_name, brewery_name, style, descriptions, id]
+    );
+    res.json("t'was updated");
+  } catch (error) {
+    console.log(error);
+  }
+});
 //delete
 app.delete;
 
