@@ -21,6 +21,7 @@ app.post("/beer", async (req, res) => {
     console.log(error);
   }
 });
+
 //getall
 app.get("/beer", async (req, res) => {
   try {
@@ -31,6 +32,7 @@ app.get("/beer", async (req, res) => {
     console.log(error);
   }
 });
+
 //get by id
 app.get("/beer/:id", async (req, res) => {
   try {
@@ -39,12 +41,12 @@ app.get("/beer/:id", async (req, res) => {
       "SELECT * FROM drinks WHERE review_id = $1",
       [id]
     );
-
     res.json(getEntry.rows[0]);
   } catch (error) {
     console.log(error);
   }
 });
+
 //put(update)
 app.put("/beer/:id", async (req, res) => {
   try {
@@ -59,6 +61,7 @@ app.put("/beer/:id", async (req, res) => {
     console.log(error);
   }
 });
+
 //delete
 app.delete("/beer/:id", async (req, res) => {
   try {
@@ -71,5 +74,5 @@ app.delete("/beer/:id", async (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(` server listening on port ${port}`);
+  console.log(`Server listening on port ${port}`);
 });
