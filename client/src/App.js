@@ -1,11 +1,8 @@
 import React, { Fragment } from "react";
+import Input from "./components/InputBeer.jsx";
 
 function App() {
-  return (
-    <Fragment>
-      <h1>Hi</h1>;
-    </Fragment>
-  );
+  return <Input />;
 }
 
 export default App;
