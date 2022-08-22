@@ -13,6 +13,19 @@ const ListBeer = () => {
       console.log(error);
     }
   };
+  const Delete = async (id) => {
+    try {
+      const res = await fetch(`http://localhost:5000/beer/${id}`, {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" }
+      });
+      const newDes = res.filter((item) => item.review_id !== id);
+      setDes(newDes);
+      window.location = "/";
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     getter();
@@ -20,28 +33,30 @@ const ListBeer = () => {
 
   return (
     <Fragment>
-      <Input />
       <div>
-        {des
-          .slice()
-          .reverse()
-          .map((des) => (
-            <article>
-              <div className="card">
-                <br />
-                {des.review_id}
-                <br />
-                {des.beer_name}
-                <br />
-                {des.brewery_name}
-                <br />
-                {des.style}
-                <br />
-                {des.descriptions}
-                <button>Delete</button>
-              </div>
-            </article>
-          ))}
+        <Input />
+        <div>
+          {des
+            .slice()
+            .reverse()
+            .map((des) => (
+              <article>
+                <div key={des.review_id} className="card">
+                  <br />
+                  {des.review_id}
+                  <br />
+                  {des.beer_name}
+                  <br />
+                  {des.brewery_name}
+                  <br />
+                  {des.style}
+                  <br />
+                  {des.descriptions}
+                  <button onClick={() => Delete(des.review_id)}>Delete</button>
+                </div>
+              </article>
+            ))}
+        </div>
       </div>
     </Fragment>
   );
