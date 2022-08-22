@@ -32,8 +32,18 @@ app.get("/beer", async (req, res) => {
     console.log(error);
   }
 });
-app.get("/beer", (req, res) => {
-  res.send("Hello World!");
+app.get("/beer/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const getEntry = await pool.query(
+      "SELECT * FROM drinks WHERE review_id = $1",
+      [id]
+    );
+
+    res.json(getEntry.rows[0]);
+  } catch (error) {
+    console.log(error);
+  }
 });
 //put(update)
 app.put;
