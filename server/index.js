@@ -3,9 +3,7 @@ const app = express();
 const port = 5000;
 var cors = require("cors");
 
-//mid
-
-dleware;
+//middleware;
 app.express(express.json);
 app.use(cors());
 
