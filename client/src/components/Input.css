@@ -1,0 +1,18 @@
+.input-card{
+    border-radius:20px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 300px;
+    box-shadow: rgba(0, 35, 35, 0.35) 1px 1px 1px 1px;
+    text-align: center;
+}
+
+button{
+    margin-bottom: 5px;
+    border-radius: 5px;
+    color: white;
+    background-color: black;
+    width:185px;
+
+}
+
