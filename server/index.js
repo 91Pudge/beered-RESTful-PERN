@@ -22,8 +22,16 @@ app.post("/beer", async (req, res) => {
   }
 });
 //getall
-app.get;
-// get
+
+app.get("/beer", async (req, res) => {
+  try {
+    // const { beer_name, brewery_name, style, descriptions } = req.body;
+    const getallEntry = await pool.query("SELECT * FROM drinks");
+    res.json(getallEntry.rows);
+  } catch (error) {
+    console.log(error);
+  }
+});
 app.get("/beer", (req, res) => {
   res.send("Hello World!");
 });
