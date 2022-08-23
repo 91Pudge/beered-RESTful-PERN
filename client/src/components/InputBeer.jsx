@@ -48,7 +48,6 @@ const InputBeer = () => {
               <br />
               <br />
               <button>Submit</button>
-              <EditBeer />
             </article>
           </div>
         </div>
