@@ -40,11 +40,13 @@ const InputBeer = () => {
               <p>BREWERY NAME:</p>
               <input onChange={(e) => setBrewery_name(e.target.value)}></input>
               <br />
-              <p>STYLE:</p>
+              <p>STYLE: </p>
               <input onChange={(e) => setStyle(e.target.value)}></input>
               <br />
               <p>DESCRIPTION:</p>
-              <input onChange={(e) => setDescriptions(e.target.value)}></input>
+              <textarea
+                onChange={(e) => setDescriptions(e.target.value)}
+              ></textarea>
               <br />
               <br />
               <button>Submit</button>
