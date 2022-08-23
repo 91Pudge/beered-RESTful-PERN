@@ -1,11 +1,6 @@
 import React, { Fragment, useState } from "react";
+import EditBeer from "./EditBeer.jsx";
 import "./Input.css";
-
-// review_id SERIAL PRIMARY KEY,
-// beer_name VARCHAR(255),
-// brewery_name VARCHAR(255),
-// style VARCHAR(255),
-// descriptions VARCHAR(255)
 
 const InputBeer = () => {
   const [beer_name, setBeer_name] = useState("");
@@ -35,6 +30,7 @@ const InputBeer = () => {
         <div className="flex-input">
           <div className="input-card">
             <article>
+              <header>Add Beer:</header>
               <p>BEER NAME:</p>
               <input
                 value={beer_name}
@@ -52,6 +48,7 @@ const InputBeer = () => {
               <br />
               <br />
               <button>Submit</button>
+              <EditBeer />
             </article>
           </div>
         </div>
