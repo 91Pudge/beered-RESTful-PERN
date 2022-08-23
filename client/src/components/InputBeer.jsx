@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import EditBeer from "./EditBeer.jsx";
+// import EditBeer from "./EditBeer.jsx";
 import "./Input.css";
 
 const InputBeer = () => {
@@ -12,7 +12,7 @@ const InputBeer = () => {
     e.preventDefault();
     const body = { beer_name, brewery_name, style, descriptions };
     try {
-      await fetch("http://localhost:5000/beer", {
+      await fetch("/beer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -40,13 +40,17 @@ const InputBeer = () => {
               <p>BREWERY NAME:</p>
               <input onChange={(e) => setBrewery_name(e.target.value)}></input>
               <br />
-              <p>STYLE:</p>
+              <p>STYLE: </p>
               <input onChange={(e) => setStyle(e.target.value)}></input>
               <br />
               <p>DESCRIPTION:</p>
               <textarea
                 onChange={(e) => setDescriptions(e.target.value)}
               ></textarea>
+
+              <br />
+              <br />
+
               <button>Submit</button>
             </article>
           </div>

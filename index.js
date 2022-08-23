@@ -1,12 +1,17 @@
 const express = require("express");
 const app = express();
-const port = 5000;
+const PORT = process.env.PORT || 5000;
 var cors = require("cors");
+const path = require("path");
 const pool = require("./db");
 
 //middleware;
 app.use(express.json());
 app.use(cors());
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "/client/build")));
+}
 
 //post
 app.post("/beer", async (req, res) => {
@@ -73,6 +78,10 @@ app.delete("/beer/:id", async (req, res) => {
   }
 });
 
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
 });

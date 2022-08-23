@@ -7,7 +7,7 @@ const ListBeer = () => {
   const [des, setDes] = useState([]);
   const getter = async () => {
     try {
-      const res = await fetch("http://localhost:5000/beer", { method: "GET" });
+      const res = await fetch("/beer", { method: "GET" });
       const data = await res.json();
       setDes(data);
     } catch (error) {
@@ -16,7 +16,7 @@ const ListBeer = () => {
   };
   const Delete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/beer/${id}`, {
+      await fetch(`/beer/${id}`, {
         method: "DELETE"
       });
       const filterdes = des.filter((item) => item.review_id !== id);
@@ -41,18 +41,18 @@ const ListBeer = () => {
             .map((des) => (
               <article key={des.review_id}>
                 <div className="card">
-                  <br />
-                  {des.review_id}
-                  <br />
+                  <text>Beer name: </text>
                   {des.beer_name}
                   <br />
+                  <text>Brewery name: </text>
                   {des.brewery_name}
                   <br />
+                  <text>Style: </text>
                   {des.style}
                   <br />
+                  <text>Beer description: </text>
                   {des.descriptions}
                   <button onClick={() => Delete(des.review_id)}>Delete</button>
-
                   <EditBeer des={des} />
                 </div>
               </article>

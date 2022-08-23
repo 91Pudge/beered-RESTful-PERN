@@ -1,7 +1,11 @@
+
 body{
     background-color: antiquewhite;
 }
 
+body{
+    background-color: antiquewhite;
+}
 
 .card {
     border-radius: 20px;
@@ -17,4 +21,9 @@ body{
 
 button{
     margin:auto;
+}
+
+text{
+    text-decoration: underline;
+    /* text-align: left; */
 }
