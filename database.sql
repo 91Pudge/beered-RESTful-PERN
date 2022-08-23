@@ -1,4 +1,4 @@
-CREATE DATABASE beer;
+-- CREATE DATABASE beer;
 CREATE TABLE drinks(
     review_id SERIAL PRIMARY KEY,
     beer_name VARCHAR(255),
