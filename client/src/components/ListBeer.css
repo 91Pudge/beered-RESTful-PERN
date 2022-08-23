@@ -1,3 +1,7 @@
+
+body{
+    background-color: antiquewhite;
+}
 .card {
     border-radius: 20px;
     display: flex;
@@ -12,4 +16,9 @@
 
 button{
     margin:auto;
+}
+
+text{
+    text-decoration: underline;
+    /* text-align: left; */
 }
