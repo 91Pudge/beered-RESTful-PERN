@@ -44,9 +44,9 @@ const InputBeer = () => {
               <input onChange={(e) => setStyle(e.target.value)}></input>
               <br />
               <p>DESCRIPTION:</p>
-              <input onChange={(e) => setDescriptions(e.target.value)}></input>
-              <br />
-              <br />
+              <textarea
+                onChange={(e) => setDescriptions(e.target.value)}
+              ></textarea>
               <button>Submit</button>
             </article>
           </div>

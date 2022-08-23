@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import "./EditBeer.css";
+// import "./EditBeer.css";
 
 const EditBeer = ({ des }) => {
   const [beer_name, setBeer_name] = useState(des.beer_name);
@@ -24,12 +24,7 @@ const EditBeer = ({ des }) => {
   return (
     <Fragment>
       {" "}
-      <button
-        type="button"
-        class="btn"
-        data-toggle="modal"
-        data-target="#exampleModal"
-      >
+      <button type="button" data-toggle="modal" data-target="#exampleModal">
         Edit
       </button>
       <div
