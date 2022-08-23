@@ -7,7 +7,7 @@ const ListBeer = () => {
   const [des, setDes] = useState([]);
   const getter = async () => {
     try {
-      const res = await fetch("/beer", { method: "GET" });
+      const res = await fetch("beer", { method: "GET" });
       const data = await res.json();
       setDes(data);
     } catch (error) {
@@ -16,7 +16,7 @@ const ListBeer = () => {
   };
   const Delete = async (id) => {
     try {
-      await fetch(`/beer/${id}`, {
+      await fetch(`beer/${id}`, {
         method: "DELETE"
       });
       const filterdes = des.filter((item) => item.review_id !== id);

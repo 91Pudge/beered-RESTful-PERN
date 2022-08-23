@@ -12,7 +12,7 @@ const InputBeer = () => {
     e.preventDefault();
     const body = { beer_name, brewery_name, style, descriptions };
     try {
-      await fetch("/beer", {
+      await fetch("beer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
