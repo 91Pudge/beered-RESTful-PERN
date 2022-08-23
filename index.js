@@ -10,9 +10,9 @@ app.use(express.json());
 app.use(cors());
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "/client/build")));
+  app.use(express.static(path.join(__dirname, "client/build")));
 }
-
+console.log(__dirname, "/client/build");
 //post
 app.post("/beer", async (req, res) => {
   try {
