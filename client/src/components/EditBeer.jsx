@@ -1,9 +1,29 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import "./EditBeer.css";
 
-const EditBeer = () => {
+const EditBeer = ({ des }) => {
+  const [beer_name, setBeer_name] = useState(des.beer_name);
+  const [brewery_name, setBrewery_name] = useState(des.brewery_name);
+  const [style, setStyle] = useState(des.style);
+  const [descriptions, setDescriptions] = useState(des.descriptions);
+
+  const Update = async (e) => {
+    e.preventDefault();
+    try {
+      const body = { beer_name, brewery_name, style, descriptions };
+      await fetch(`http://localhost:5000/beer/${des.review_id}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(body)
+      });
+      window.location = "/";
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <Fragment>
+      {" "}
       <button
         type="button"
         class="btn"
@@ -12,7 +32,6 @@ const EditBeer = () => {
       >
         Edit
       </button>
-
       <div
         className="modal fade"
         id="exampleModal"
@@ -38,16 +57,32 @@ const EditBeer = () => {
             </div>
             <div className="modal-body">
               <p>BEER:</p>
-              <input></input>
+              <input
+                value={beer_name}
+                type="text"
+                onChange={(e) => setBeer_name(e.target.value)}
+              ></input>
               <br />
               <p>BREWERY NAME:</p>
-              <input></input>
+              <input
+                value={brewery_name}
+                type="text"
+                onChange={(e) => setBrewery_name(e.target.value)}
+              ></input>
               <br />
               <p>STYLE:</p>
-              <input></input>
+              <input
+                value={style}
+                type="text"
+                onChange={(e) => setStyle(e.target.value)}
+              ></input>
               <br />
               <p>DESCRIPTION:</p>
-              <input></input>
+              <input
+                value={descriptions}
+                type="text"
+                onChange={(e) => setDescriptions(e.target.value)}
+              ></input>
               <br />
               <br />
             </div>
@@ -59,7 +94,7 @@ const EditBeer = () => {
               >
                 Close
               </button>
-              <button type="button" className="btn">
+              <button onClick={(e) => Update(e)} type="button" className="btn">
                 Edit
               </button>
             </div>
@@ -71,7 +106,3 @@ const EditBeer = () => {
 };
 
 export default EditBeer;
-
-// onChange={(e) => setDescriptions(e.target.value)
-// onChange={(e) => setStyle(e.target.value)}
-// onChange={(e) => setBrewery_name(e.target.value)
