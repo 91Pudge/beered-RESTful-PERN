@@ -7,8 +7,11 @@ const ListBeer = () => {
   const [des, setDes] = useState([]);
   const getter = async () => {
     try {
-      const res = await fetch("/beer", { method: "GET" });
+      const res = await fetch("http://localhost:5000/beer", {
+        method: "GET"
+      });
       const data = await res.json();
+      console.log(data);
       setDes(data);
     } catch (error) {
       console.log(error);
@@ -16,20 +19,20 @@ const ListBeer = () => {
   };
   const Delete = async (id) => {
     try {
-      await fetch(`/beer/${id}`, {
+      await fetch(`http://localhost:5000/beer/${id}`, {
         method: "DELETE"
       });
-      const filterdes = des.filter((item) => item.review_id !== id);
-      setDes(filterdes);
+      const fil = des.filter((item) => item.review_id !== id);
+      setDes(fil);
     } catch (error) {
       console.log(error);
     }
   };
-
   useEffect(() => {
     getter();
   }, []);
 
+  // console.log(des.review_id);
   return (
     <Fragment>
       <div>
@@ -38,22 +41,22 @@ const ListBeer = () => {
           {des
             .slice()
             .reverse()
-            .map((des) => (
-              <article key={des.review_id}>
+            .map((de) => (
+              <article key={de.review_id}>
                 <div className="card">
                   <text>Beer name: </text>
-                  {des.beer_name}
+                  {de.beer_name}
                   <br />
                   <text>Brewery name: </text>
-                  {des.brewery_name}
+                  {de.brewery_name}
                   <br />
                   <text>Style: </text>
-                  {des.style}
+                  {de.style}
                   <br />
                   <text>Beer description: </text>
-                  {des.descriptions}
-                  <button onClick={() => Delete(des.review_id)}>Delete</button>
-                  <EditBeer des={des} />
+                  {de.descriptions}
+                  <button onClick={() => Delete(de.review_id)}>Delete</button>
+                  <EditBeer de={de} />
                 </div>
               </article>
             ))}
