@@ -52,7 +52,8 @@ const ListBeer = () => {
                   <br />
                   {des.descriptions}
                   <button onClick={() => Delete(des.review_id)}>Delete</button>
-                  <EditBeer />
+
+                  <EditBeer des={des} />
                 </div>
               </article>
             ))}
