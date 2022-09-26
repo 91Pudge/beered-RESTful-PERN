@@ -24,13 +24,14 @@
     <li>npm i express pg cors nodemon</li>
     <li>cd server && npm run dev</li> 
   </ol>
-  </div>                                         
+                                        
 
 
     <h3>front-end:</h3>
     <p>
     React- cd client && npm start
     </p>
+      </div> 
 
 Deployed to Heroku https://beer-review-app91.herokuapp.com
   </div>
