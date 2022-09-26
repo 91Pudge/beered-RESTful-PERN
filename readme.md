@@ -24,7 +24,7 @@
    <li>npm i express pg cors nodemon</li>
    <li>cd server && npm run dev</li> 
   </ol>
-    <p>Plans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps </p>
+    <p align="center">Plans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps. </p>
     
 
 
