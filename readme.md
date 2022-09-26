@@ -14,7 +14,7 @@
  <h4>Created back-end using: PostgresQl, Node.js</h4>
   <h4>Created front-end using: React, HTML and CSS</h4>
  
-   <h3 align="left">Intructions for using the application<h3/>
+   <h3 align="left">Intructions for using the application</h3>
   <div align="left">
   <ol>
    <li>npm init</li>
