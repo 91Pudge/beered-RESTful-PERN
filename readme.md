@@ -18,8 +18,7 @@
   <div align="center">
 
    <li>npm init</li>
-   <li>git init</li>  
-   <li>add remote to folder https://github.com/91Pudge/beered</li>  
+   <li>git init</li>
    <li>add .gitignore file</li> 
    <li>npm i express pg cors nodemon</li>
    <li>cd server && npm run dev</li> 
