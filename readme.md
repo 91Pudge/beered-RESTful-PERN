@@ -28,7 +28,7 @@
     
 
 
-    <p align="center">Deployed to Heroku https://beer-review-app91.herokuapp.com</p>
+    <h3 align="center">Deployed to Heroku https://beer-review-app91.herokuapp.com</h3>
     
     
   </div>
