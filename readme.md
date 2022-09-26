@@ -1,5 +1,5 @@
 
-<div id="badges" align="center">
+<div id="badges" >
   <a href="https://www.linkedin.com/in/josh-h-34b566150/">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
