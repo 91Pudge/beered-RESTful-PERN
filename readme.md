@@ -27,6 +27,6 @@
     <p align="center">Plans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps. </p>
     
 
- Deployed to Heroku- https://beer-review-app91.herokuapp.co
+ Deployed to Heroku- https://beer-review-app91.herokuapp.com
     
   </div>
