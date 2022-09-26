@@ -13,9 +13,10 @@
 
  <h4>Created back-end using: PostgresQl, Node.js</h4>
   <h4>Created front-end using: React, HTML and CSS</h4>
-                                          
-<h3>Intructions for using the application<h3/>
-  <ol align="center">
+ 
+  <h3>Intructions for using the application<h3/>
+  <div align="left">
+  <ol>
    <li>npm init</li>
     <li>git init</li>  
     <li>add remote to folder https://github.com/91Pudge/beered</li>  
@@ -23,17 +24,13 @@
     <li>npm i express pg cors nodemon</li>
     <li>cd server && npm run dev</li> 
   </ol>
+  </div>                                         
 
-create db
-create server.js
 
-front-end:
-
-React- cd client && npm start
-
-Css
-Html
+    <h3>front-end:</h3>
+    <p>
+    React- cd client && npm start
+    </p>
 
 Deployed to Heroku https://beer-review-app91.herokuapp.com
-  
   </div>
