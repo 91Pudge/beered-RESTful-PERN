@@ -1,12 +1,12 @@
 
-<div id="badges" >
+<div id="badges" align="center">
   <a href="https://www.linkedin.com/in/josh-h-34b566150/">
     <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
   </a>
 
 
 
- <h1>align="center"><h1>Beered.co.jp</h1>
+<h1>Beered.co.jp</h1>
                                                                                                                             
 
  <h3 align="center">Beer review site for the japanese market in English and Japanese</h3>
