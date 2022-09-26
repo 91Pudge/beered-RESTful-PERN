@@ -15,14 +15,17 @@
   <h4>Created front-end using: React, HTML and CSS</h4>
                                           
 <h3>Intructions for using the application<h3/>
-<p>
-  npm init,
+  <li>
+    npm init,
 git init,
 add remote to folder https://github.com/91Pudge/beered,
 add .gitignore file,
 npm i express pg cors,
 npm i nodemon, 
 cd server && npm run dev
+  
+  </li>
+
 </p>
 
 create db
