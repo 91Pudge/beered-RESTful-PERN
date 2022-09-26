@@ -16,14 +16,13 @@
  
  <h3 align="left">Intructions for using the application</h3>
   <div align="left">
-  <ol>
+
    <li>npm init</li>
    <li>git init</li>  
    <li>add remote to folder https://github.com/91Pudge/beered</li>  
    <li>add .gitignore file</li> 
    <li>npm i express pg cors nodemon</li>
    <li>cd server && npm run dev</li> 
-  </ol>
     <p align="center">Plans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps, add testing and incorporate TypeScript.<br/> Deployed to Heroku- https://beer-review-app91.herokuapp.com </p>
     
 
