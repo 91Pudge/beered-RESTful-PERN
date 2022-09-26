@@ -20,3 +20,5 @@ React- cd client && npm start
 
 Css
 Html
+
+Deployed to Heroku https://beer-review-app91.herokuapp.com
