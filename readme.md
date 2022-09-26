@@ -5,7 +5,6 @@
 
 <h1>Beered.co.jp</h1>
 
-
  <h3 align="center">Beer review site for the japanese market in English and Japanese</h3>
 
  <h4>Created back-end using: PostgresQl, Node.js</h4>
@@ -21,7 +20,6 @@
    <li>cd server && npm run dev</li> 
     
 <p align="center">Plans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps, add testing and incorporate TypeScript.<br/> Deployed to Heroku- https://beer-review-app91.herokuapp.com </p>
-
 
   </div>
 Css
