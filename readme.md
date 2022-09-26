@@ -24,9 +24,9 @@
    <li>npm i express pg cors nodemon</li>
    <li>cd server && npm run dev</li> 
   </ol>
-    <p>PLans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps </p>
+    <p>Plans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps </p>
     
 
 
-Deployed to Heroku https://beer-review-app91.herokuapp.com
+    <div align="center">Deployed to Heroku https://beer-review-app91.herokuapp.com</div>
   </div>
