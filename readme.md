@@ -26,11 +26,11 @@
   </ol>
                                         
 
-
+      </div> 
     <h3>front-end</h3>
     <h5>React- cd client && npm start</h5>  
     
-      </div> 
+
 
 Deployed to Heroku https://beer-review-app91.herokuapp.com
   </div>
