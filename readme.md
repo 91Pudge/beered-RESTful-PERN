@@ -1,5 +1,5 @@
 <div id="header" align="center">
-  <img src=" src="https://giphy.com/embed/McO7leZ9pxTdHLaQeN"/>
+  <img src="https://giphy.com/embed/hvRJCLFzcasrR4ia7z" width="480" height="466" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/transparent-hvRJCLFzcasrR4ia7z">via GIPHY</a></p>"/>
 </div>
 
 <div id="badges" align="center">
@@ -8,15 +8,13 @@
   </a>
 
 
-<div align="center">
-  <h1>Beered.co.jp</h1>
-  </div>
+                                          <div align="center"><h1>Beered.co.jp</h1></div>
                                                                                                                             
 
- <h3 align="center">Beer review site for the japanese market in English and Japanese</h3>
-  
+                         <h3 align="center">Beer review site for the japanese market in English and Japanese</h3>
 
-back-end:
+                                      <h4>Created back-end using: PostgresQl, Node.js</h4>
+                                      <h4>Created front-end using: React, HTML and CSS</h4>
 
 npm init
 git init
