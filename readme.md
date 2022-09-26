@@ -15,8 +15,8 @@
   <h4>Created front-end using: React, HTML and CSS</h4>
                                           
 <h3>Intructions for using the application<h3/>
-  <ol>
-    <li>npm init</li>
+  <ol align="center">
+   <li>npm init</li>
     <li>git init</li>  
     <li>add remote to folder https://github.com/91Pudge/beered</li>  
     <li>add .gitignore file</li> 
