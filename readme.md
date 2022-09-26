@@ -28,7 +28,7 @@
 
 
     <h3>front-end</h3>
-    React- cd client && npm start
+    <h5>React- cd client && npm start</h5>  
     
       </div> 
 
