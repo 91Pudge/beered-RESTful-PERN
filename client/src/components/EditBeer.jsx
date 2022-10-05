@@ -1,18 +1,19 @@
 import React, { Fragment, useState } from "react";
 // import "./EditBeer.css";
 
-const EditBeer = ({ des }) => {
-  const [beer_name, setBeer_name] = useState(des.beer_name);
-  const [brewery_name, setBrewery_name] = useState(des.brewery_name);
-  const [style, setStyle] = useState(des.style);
-  const [descriptions, setDescriptions] = useState(des.descriptions);
+const EditBeer = ({ de }) => {
+  console.log(de);
+  const [beer_name, setBeer_name] = useState(de.beer_name);
+  const [brewery_name, setBrewery_name] = useState(de.brewery_name);
+  const [style, setStyle] = useState(de.style);
+  const [descriptions, setDescriptions] = useState(de.descriptions);
 
   const Update = async (e) => {
     e.preventDefault();
     try {
       const body = { beer_name, brewery_name, style, descriptions };
 
-      await fetch(`beer/${des.review_id}`, {
+      await fetch(`http://localhost:5000/beer/${de.review_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -25,12 +26,16 @@ const EditBeer = ({ des }) => {
   return (
     <Fragment>
       {" "}
-      <button type="button" data-toggle="modal" data-target="#exampleModal">
+      <button
+        type="button"
+        data-toggle="modal"
+        data-target={`#id${de.review_id}`}
+      >
         Edit
       </button>
       <div
         className="modal fade"
-        id="exampleModal"
+        id={`id${de.review_id}`}
         tabIndex="-1"
         role="dialog"
         aria-labelledby="exampleModalLabel"
@@ -52,15 +57,19 @@ const EditBeer = ({ des }) => {
               </button>
             </div>
             <div className="modal-body">
-              <p>BEER:</p>
-              <input
-                value={beer_name}
-                type="text"
-                onChange={(e) => setBeer_name(e.target.value)}
-              ></input>
+              <p>BEER NAME:</p>
+              <form>
+                <input
+                  className="form-control"
+                  value={beer_name}
+                  type="text"
+                  onChange={(e) => setBeer_name(e.target.value)}
+                ></input>
+              </form>
               <br />
               <p>BREWERY NAME:</p>
               <input
+                className="form-control"
                 value={brewery_name}
                 type="text"
                 onChange={(e) => setBrewery_name(e.target.value)}
@@ -68,6 +77,7 @@ const EditBeer = ({ des }) => {
               <br />
               <p>STYLE:</p>
               <input
+                className="form-control"
                 value={style}
                 type="text"
                 onChange={(e) => setStyle(e.target.value)}
@@ -75,6 +85,7 @@ const EditBeer = ({ des }) => {
               <br />
               <p>DESCRIPTION:</p>
               <input
+                className="form-control"
                 value={descriptions}
                 type="text"
                 onChange={(e) => setDescriptions(e.target.value)}

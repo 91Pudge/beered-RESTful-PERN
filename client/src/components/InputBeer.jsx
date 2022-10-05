@@ -12,7 +12,7 @@ const InputBeer = () => {
     e.preventDefault();
     const body = { beer_name, brewery_name, style, descriptions };
     try {
-      await fetch("beer", {
+      await fetch("http://localhost:5000/beer", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -30,7 +30,7 @@ const InputBeer = () => {
         <div className="flex-input">
           <div className="input-card">
             <article>
-              <header>Add Beer:</header>
+              <header>Add Beer</header>
               <p>BEER NAME:</p>
               <input
                 value={beer_name}
