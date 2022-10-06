@@ -1,28 +1,25 @@
-<div id="badges" align="center">
-  <a href="https://www.linkedin.com/in/josh-h-34b566150/">
-    <img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn Badge"/>
-  </a>
+# Beered craft beer review app
 
-<h1>Beered.co.jp</h1>
+# About the App
 
- <h3 align="center">Beer review site for the japanese market in English and Japanese</h3>
+This Application was created due to the fact that no craft beer review app's exist yet. This app is to help beer lovers become more knowledgable about small scale producers and
 
- <h4>Created back-end using: PostgresQl, Node.js</h4>
-  <h4>Created front-end using: React, HTML and CSS</h4>
- 
- <h3 align="center">Intructions for using the application</h3>
-  <div align="center">
+## Front-end using:
 
-   <li>npm init</li>
-   <li>git init</li>
-   <li>add .gitignore file</li> 
-   <li>npm i express pg cors nodemon</li>
-   <li>cd server && npm run dev</li> 
-    
-<p align="center">Plans for the future: Intergrate user authentication, transfer to firebase, add internationalisation button which translates page to Japanese, add goggle maps, add testing and incorporate TypeScript.<br/> Deployed to Heroku- https://beer-review-app91.herokuapp.com </p>
+The Beered app includes a frontend built in [React.js](https://reactjs.org/) and leveraging [CSS] & [JSX]) for presentation.
 
-  </div>
-Css
-Html
+To run the frontend components locally, clone this repo, then run `npm install` from within the repo folder to install the above components.
+Note: If you don't have `npm` installed, you'll need to do that first.
 
-Deployed to Heroku https://beer-review-app91.herokuapp.com
+## Back end
+
+The beered backend was built using postgresQl for data persistence.
+
+# OpenSource Contributions
+
+Beered is a passion project built by a group of developers. It's far from perfect and needs the involvement of others to survive.
+If you're interested in becoming a contributor, grab an open issue, fix it and submit a Pull Request. If you have something in mind that's not in the Issues list, please reach out to the team on GitHub.
+
+# Contact
+
+Deployed to Heroku-https://beer-review-app91.herokuapp.com
