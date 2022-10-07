@@ -1,8 +1,6 @@
 import React, { Fragment, useState } from "react";
-// import "./EditBeer.css";
 
 const EditBeer = ({ de }) => {
-  console.log(de);
   const [beer_name, setBeer_name] = useState(de.beer_name);
   const [brewery_name, setBrewery_name] = useState(de.brewery_name);
   const [style, setStyle] = useState(de.style);
@@ -27,6 +25,7 @@ const EditBeer = ({ de }) => {
     <Fragment>
       {" "}
       <button
+        className="mx-auto"
         type="button"
         data-toggle="modal"
         data-target={`#id${de.review_id}`}
