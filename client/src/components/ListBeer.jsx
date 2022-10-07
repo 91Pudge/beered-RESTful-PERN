@@ -1,5 +1,5 @@
 import "./ListBeer.css";
-import React, { Fragment, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "./InputBeer.jsx";
 import EditBeer from "./EditBeer.jsx";
 
@@ -11,7 +11,6 @@ const ListBeer = () => {
         method: "GET"
       });
       const data = await res.json();
-      console.log(data);
       setDes(data);
     } catch (error) {
       console.log(error);
@@ -32,37 +31,48 @@ const ListBeer = () => {
     getter();
   }, []);
 
-  // console.log(des.review_id);
   return (
-    <Fragment>
+    <div className="bg-">
+      <Input />
       <div>
-        <Input />
-        <div>
-          {des
-            .slice()
-            .reverse()
-            .map((de) => (
-              <article key={de.review_id}>
-                <div className="card">
-                  <text>Beer name: </text>
+        {des
+          .slice()
+          .reverse()
+          .map((de) => (
+            <article key={de.review_id}>
+              <div className="card w-7/12 mx-auto rounded">
+                <div className="mt-2">
+                  <p>Beer name:</p>
                   {de.beer_name}
-                  <br />
-                  <text>Brewery name: </text>
-                  {de.brewery_name}
-                  <br />
-                  <text>Style: </text>
-                  {de.style}
-                  <br />
-                  <text>Beer description: </text>
-                  {de.descriptions}
-                  <button onClick={() => Delete(de.review_id)}>Delete</button>
-                  <EditBeer de={de} />
                 </div>
-              </article>
-            ))}
-        </div>
+
+                <div className="mt-2">
+                  <p>Brewery name: </p>
+                  {de.brewery_name}
+                </div>
+
+                <div className="mt-2">
+                  <p>Style: </p>
+                  {de.style}
+                </div>
+
+                <div className="mt-2 mb-2">
+                  <p>Beer description: </p>
+                  {de.descriptions}
+                </div>
+
+                <button
+                  className="mx-auto"
+                  onClick={() => Delete(de.review_id)}
+                >
+                  Delete
+                </button>
+                <EditBeer de={de} />
+              </div>
+            </article>
+          ))}
       </div>
-    </Fragment>
+    </div>
   );
 };
 
