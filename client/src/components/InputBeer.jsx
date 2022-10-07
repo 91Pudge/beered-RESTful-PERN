@@ -1,5 +1,4 @@
 import React, { Fragment, useState } from "react";
-// import EditBeer from "./EditBeer.jsx";
 import "./Input.css";
 
 const InputBeer = () => {

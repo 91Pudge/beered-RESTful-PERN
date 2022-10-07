@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import ListBeer from "./components/ListBeer.jsx";
 
 function App() {
