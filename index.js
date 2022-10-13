@@ -9,6 +9,7 @@ const pool = require("./db");
 app.use(express.json());
 app.use(cors());
 app.use("/auth", require("./routes/jwtAuth"));
+app.use("/dashboard", require("./routes/dashboard"));
 
 app.post("/beer", async (req, res) => {
   try {
