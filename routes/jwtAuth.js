@@ -3,6 +3,7 @@ const pool = require("../db");
 const bcrypt = require("bcrypt");
 const jwtGenerator = require("../utils/jwtGenerator");
 const validInfo = require("../middleware/validInfo");
+const authorisation = require("../middleware/authorisation");
 
 router.post("/register", validInfo, async (req, res) => {
   try {
@@ -54,7 +55,16 @@ router.post("/login", validInfo, async (req, res) => {
     const token = jwtGenerator(user.rows[0].user_id);
     res.json({ token });
   } catch (error) {
-    console.error(err.message);
+    console.error(error.message);
+    res.status(500).send("Server Error");
+  }
+});
+
+router.get("/is-verify", authorisation, async (req, res) => {
+  try {
+    res.json(true);
+  } catch (error) {
+    console.error(error.message);
     res.status(500).send("Server Error");
   }
 });
