@@ -8,6 +8,7 @@ const pool = require("./db");
 //middleware;
 app.use(express.json());
 app.use(cors());
+app.use("/auth", require("./routes/jwtAuth"));
 
 app.post("/beer", async (req, res) => {
   try {
@@ -73,6 +74,7 @@ app.delete("/beer/:id", async (req, res) => {
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
+
 console.log(path.join(__dirname));
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
