@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -33,6 +34,7 @@ const Login = ({ setAuth }) => {
   return (
     <Fragment>
       <h1>Login</h1>
+
       <form
         className=" flex-row p-5 text-center w-50 mx-auto"
         onSubmit={onSubmitForm}
