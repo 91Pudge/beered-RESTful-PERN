@@ -21,7 +21,6 @@ function App() {
         headers: { token: localStorage.token }
       });
       const parseRes = await response.json();
-      console.log(parseRes);
       parseRes === true ? setIsAuthenticated(true) : setIsAuthenticated(false);
     } catch (error) {
       console.error(error.message);
