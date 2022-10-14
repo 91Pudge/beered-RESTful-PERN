@@ -1,9 +1,10 @@
 import "./ListBeer.css";
-import React, { useState, useEffect } from "react";
-import Input from "./InputBeer.jsx";
-import EditBeer from "./EditBeer.jsx";
+import React, { useState, useEffect, Fragment } from "react";
+import { Link } from "react-router-dom";
+import Input from "./InputBeer";
+import EditBeer from "./EditBeer";
 
-const ListBeer = () => {
+const ListBeer = ({ setAuth }) => {
   const [des, setDes] = useState([]);
   const getter = async () => {
     try {
@@ -27,13 +28,22 @@ const ListBeer = () => {
       console.log(error);
     }
   };
+  const logOut = () => {
+    localStorage.removeItem("token");
+    setAuth(false);
+  };
   useEffect(() => {
     getter();
   }, []);
 
   return (
-    <div className="bg-">
+    <Fragment>
       <Input />
+      <Link to="/login">
+        <button className="w-20 ml-2" onClick={() => logOut()}>
+          logout
+        </button>
+      </Link>
       <div>
         {des
           .slice()
@@ -45,22 +55,18 @@ const ListBeer = () => {
                   <p>Beer name:</p>
                   {de.beer_name}
                 </div>
-
                 <div className="mt-2">
                   <p>Brewery name: </p>
                   {de.brewery_name}
                 </div>
-
                 <div className="mt-2">
                   <p>Style: </p>
                   {de.style}
                 </div>
-
                 <div className="mt-2 mb-2">
                   <p>Beer description: </p>
                   {de.descriptions}
                 </div>
-
                 <button
                   className="mx-auto"
                   onClick={() => Delete(de.review_id)}
@@ -72,7 +78,7 @@ const ListBeer = () => {
             </article>
           ))}
       </div>
-    </div>
+    </Fragment>
   );
 };
 
