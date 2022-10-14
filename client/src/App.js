@@ -1,8 +1,8 @@
 import { Fragment, useState, useEffect } from "react";
 import ListBeer from "./components/ListBeer.jsx";
-import Dashboard from "./components/Dashboard";
-import Login from "./components/Login";
-import Register from "./components/Register";
+import Dashboard from "./pages/Dashboard";
+import Login from "./pages/Login";
+import Register from "./pages/Register";
 import {
   BrowserRouter as Router,
   Routes,
