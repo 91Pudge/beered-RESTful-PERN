@@ -2,13 +2,18 @@ import React, { Fragment, useState } from "react";
 import "./Input.css";
 
 const InputBeer = () => {
-  const [beer_name, setBeer_name] = useState("");
-  const [brewery_name, setBrewery_name] = useState("");
-  const [style, setStyle] = useState("");
-  const [descriptions, setDescriptions] = useState("");
+  const [inputs, setInputs] = useState({
+    beer_name: "",
+    brewery_name: "",
+    style: "",
+    descriptions: ""
+  });
+  const { beer_name, brewery_name, style, descriptions } = inputs;
+  const onChange = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const body = { beer_name, brewery_name, style, descriptions };
     try {
       await fetch("http://localhost:5000/beer", {
@@ -16,7 +21,6 @@ const InputBeer = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
-      window.location = "/";
     } catch (error) {
       console.log(error);
     }
@@ -32,23 +36,36 @@ const InputBeer = () => {
               <header>Add Beer</header>
               <p>BEER NAME:</p>
               <input
+                className="my-2"
+                type="text"
+                name="beer_name"
                 value={beer_name}
-                onChange={(e) => setBeer_name(e.target.value)}
-              ></input>
-              <br />
+                onChange={(e) => onChange(e)}
+              />
               <p>BREWERY NAME:</p>
-              <input onChange={(e) => setBrewery_name(e.target.value)}></input>
-              <br />
+              <input
+                className="my-2"
+                type="text"
+                name="brewery_name"
+                value={brewery_name}
+                onChange={(e) => onChange(e)}
+              />
               <p>STYLE: </p>
-              <input onChange={(e) => setStyle(e.target.value)}></input>
-              <br />
+              <input
+                className="my-2"
+                type="text"
+                name="style"
+                value={style}
+                onChange={(e) => onChange(e)}
+              />
               <p>DESCRIPTION:</p>
-              <textarea
-                onChange={(e) => setDescriptions(e.target.value)}
-              ></textarea>
-
-              <br />
-              <br />
+              <input
+                className="my-2"
+                type="text"
+                name="descriptions"
+                value={descriptions}
+                onChange={(e) => onChange(e)}
+              ></input>
 
               <button>Submit</button>
             </article>
