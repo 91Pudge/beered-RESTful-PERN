@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "./style.css";
 const Dashboard = ({ setAuth }) => {
   const [name, setName] = useState("");
 
@@ -32,8 +33,9 @@ const Dashboard = ({ setAuth }) => {
       </div>
       <div className="mx-auto text-center">
         <button>
-          <Link to="/listbeer">Click here</Link>
+          <Link to="/listbeer">Click here to post a review</Link>
         </button>
+        <br />
         <button onClick={(e) => logOut(e)}>Log out</button>
       </div>
     </Fragment>
