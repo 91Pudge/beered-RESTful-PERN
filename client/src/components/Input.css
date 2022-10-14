@@ -10,7 +10,6 @@ body{
     text-align: center;
     margin: auto;
     background-color:rgb(235, 159, 5);
-    
     border-bottom-left-radius: 90px;
     border-bottom-right-radius: 90px;
 }
@@ -20,14 +19,18 @@ button{
     border-radius: 5px;
     color: white;
     background-color: black;
-    width:185px;
+    width:50%;
 } 
 
 h1{
-   
+   font-size: x-large;
     text-align: center;
     margin-bottom: 30px;
     background-color: rgb(235, 159, 5);
+}
+
+h2{
+    font-size: x-large;
 }
 
 header{
