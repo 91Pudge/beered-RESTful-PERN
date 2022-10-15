@@ -1,8 +1,10 @@
-# Beered craft beer review app
+# Beered
+
+## Craft beer review App
 
 # About the App
 
-This Application was created due to the fact that no craft beer review app's exist yet. This app is to help beer lovers become more knowledgable about small scale producers and
+This Application was created due to the fact that no craft beer review app's exist yet. This app is to help beer lovers become more knowledgable about small scale producers and interact with other beer enthusiast's.
 
 ## Front-end using:
 
