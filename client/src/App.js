@@ -65,7 +65,16 @@ function App() {
               )
             }
           />
-          <Route path="/listbeer" element={<ListBeer setAuth={setAuth} />} />
+          <Route
+            path="/listbeer"
+            element={
+              !localStorage.token ? (
+                <Navigate to="/login" />
+              ) : (
+                <ListBeer setAuth={setAuth} />
+              )
+            }
+          />
         </Routes>
       </Router>
     </Fragment>
