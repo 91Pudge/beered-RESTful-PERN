@@ -4,3 +4,8 @@ body{
     margin: 0;
     background-color: rgb(231, 234, 239)
 }
+
+.error{
+    color: red;
+    text-align: center;
+}
