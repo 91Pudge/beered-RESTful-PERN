@@ -1,5 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
+import NavBar from "../components/NavBar";
 import "./style.css";
 
 const Login = ({ setAuth }) => {
@@ -33,8 +34,11 @@ const Login = ({ setAuth }) => {
 
   return (
     <Fragment>
-      <h1>Login</h1>
-
+      <nav className="navbar navbar-expand-lg navbar-light bg-warning">
+        <a className="navbar-brand" href="/login">
+          Beered
+        </a>
+      </nav>
       <form
         className=" flex-row p-5 text-center w-50 mx-auto"
         onSubmit={onSubmitForm}
@@ -62,7 +66,7 @@ const Login = ({ setAuth }) => {
 
         <Link to="/register">Register</Link>
       </form>
-      {localStorage.token === undefined ? null : (
+      {!localStorage.token ? null : (
         <p className="error">Wrong password or email</p>
       )}
     </Fragment>

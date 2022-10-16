@@ -14,6 +14,7 @@ function App() {
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   };
+
   async function isAuth() {
     try {
       const response = await fetch("http://localhost:5000/auth/is-verify", {
@@ -26,6 +27,7 @@ function App() {
       console.error(error.message);
     }
   }
+
   useEffect(() => {
     isAuth();
   });
@@ -69,7 +71,7 @@ function App() {
           <Route
             path="/listbeer"
             element={
-              !localStorage.token ? (
+              !isAuthenticated ? (
                 <Navigate to="/login" />
               ) : (
                 <ListBeer setAuth={setAuth} />

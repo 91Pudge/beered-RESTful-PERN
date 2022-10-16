@@ -2,6 +2,7 @@ import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import "./style.css";
+
 const Dashboard = ({ setAuth }) => {
   const [name, setName] = useState("");
 
@@ -18,7 +19,7 @@ const Dashboard = ({ setAuth }) => {
     }
   }
 
-  const logOut = (e) => {
+  const logOut = () => {
     localStorage.removeItem("token");
     setAuth(false);
   };
