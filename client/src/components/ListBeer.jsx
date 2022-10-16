@@ -41,11 +41,6 @@ const ListBeer = ({ setAuth }) => {
     <Fragment>
       <NavBar setAuth={setAuth} />
       <Input />
-      <Link to="/login">
-        <button className="w-20 ml-2" onClick={() => logOut()}>
-          logout
-        </button>
-      </Link>
       <div>
         {des
           .slice()
