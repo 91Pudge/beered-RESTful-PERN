@@ -13,7 +13,8 @@ const InputBeer = () => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     const body = { beer_name, brewery_name, style, descriptions };
     try {
       await fetch("http://localhost:5000/beer", {
@@ -21,6 +22,7 @@ const InputBeer = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
       });
+      window.location.href = "/listbeer";
     } catch (error) {
       console.log(error);
     }
