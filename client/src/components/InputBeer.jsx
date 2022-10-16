@@ -1,5 +1,5 @@
 import React, { Fragment, useState } from "react";
-import "./Input.css";
+import "./InputBeer.css";
 
 const InputBeer = () => {
   const [inputs, setInputs] = useState({
@@ -8,6 +8,7 @@ const InputBeer = () => {
     style: "",
     descriptions: ""
   });
+
   const { beer_name, brewery_name, style, descriptions } = inputs;
   const onChange = (e) => {
     setInputs({ ...inputs, [e.target.name]: e.target.value });
