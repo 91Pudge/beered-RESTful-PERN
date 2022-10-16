@@ -30,7 +30,6 @@ const InputBeer = () => {
 
   return (
     <Fragment>
-      <h1>Beered.co.jp</h1>
       <form onSubmit={handleSubmit}>
         <div className="flex-input">
           <div className="input-card">
