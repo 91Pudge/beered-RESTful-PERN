@@ -24,13 +24,13 @@ const Login = ({ setAuth }) => {
       });
 
       const parseRes = await response.json();
-
       localStorage.setItem("token", parseRes.token);
       setAuth(true);
     } catch (error) {
       console.error(error.message);
     }
   };
+
   return (
     <Fragment>
       <h1>Login</h1>
@@ -53,12 +53,18 @@ const Login = ({ setAuth }) => {
           placeholder="password"
           className="form-control my-3 text-center"
           value={password}
+          minLength="6"
+          title="6 charaters minimum length"
           onChange={(e) => onChange(e)}
         />
         <button>Login</button>
         <br />
+
         <Link to="/register">Register</Link>
       </form>
+      {localStorage.token === undefined ? null : (
+        <p className="error">Wrong password or email</p>
+      )}
     </Fragment>
   );
 };
