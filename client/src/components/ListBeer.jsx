@@ -3,6 +3,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import { Link } from "react-router-dom";
 import Input from "./InputBeer";
 import EditBeer from "./EditBeer";
+import NavBar from "./NavBar";
 
 const ListBeer = ({ setAuth }) => {
   const [des, setDes] = useState([]);
@@ -38,6 +39,7 @@ const ListBeer = ({ setAuth }) => {
 
   return (
     <Fragment>
+      <NavBar setAuth={setAuth} />
       <Input />
       <Link to="/login">
         <button className="w-20 ml-2" onClick={() => logOut()}>

@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import NavBar from "./NavBar";
 import "./style.css";
 const Dashboard = ({ setAuth }) => {
   const [name, setName] = useState("");
@@ -18,7 +19,6 @@ const Dashboard = ({ setAuth }) => {
   }
 
   const logOut = (e) => {
-    e.preventDefault();
     localStorage.removeItem("token");
     setAuth(false);
   };
@@ -27,6 +27,7 @@ const Dashboard = ({ setAuth }) => {
   }, []);
   return (
     <Fragment>
+      <NavBar />
       <h1>Dashboard </h1>
       <div className="text-center mb-10">
         <h2> Welcome - {name}</h2>
