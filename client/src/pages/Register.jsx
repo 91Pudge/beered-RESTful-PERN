@@ -41,6 +41,7 @@ const Register = ({ setAuth }) => {
           className="form-control my-3 text-center"
           value={email}
           onChange={(e) => onChange(e)}
+          required
         />
         <input
           type="password"
@@ -49,6 +50,9 @@ const Register = ({ setAuth }) => {
           className="form-control my-3 text-center"
           value={password}
           onChange={(e) => onChange(e)}
+          minLength="6"
+          title="6 charaters minimum length"
+          required=""
         />
         <input
           type="text"
@@ -57,8 +61,11 @@ const Register = ({ setAuth }) => {
           className="form-control my-3 text-center"
           value={name}
           onChange={(e) => onChange(e)}
+          min="2"
+          required=""
         />
         <button>Submit</button>
+        <br />
         <button>
           <Link to="/login">Login</Link>
         </button>
