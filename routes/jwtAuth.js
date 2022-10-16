@@ -49,7 +49,7 @@ router.post("/login", validInfo, async (req, res) => {
     );
     console.log(validPassword);
     if (!validPassword) {
-      return res.status(401).send("Password or email not valid");
+      return res.status(401).json("Password or email not valid");
     }
 
     const token = jwtGenerator(user.rows[0].user_id);
