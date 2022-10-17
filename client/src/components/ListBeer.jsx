@@ -1,6 +1,5 @@
 import "./ListBeer.css";
 import React, { useState, useEffect, Fragment } from "react";
-import { Link } from "react-router-dom";
 import Input from "./InputBeer";
 import EditBeer from "./EditBeer";
 import NavBar from "./NavBar";
@@ -29,10 +28,7 @@ const ListBeer = ({ setAuth }) => {
       console.log(error);
     }
   };
-  const logOut = () => {
-    localStorage.removeItem("token");
-    setAuth(false);
-  };
+
   useEffect(() => {
     getter();
   }, []);
