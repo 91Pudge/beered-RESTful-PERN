@@ -5,7 +5,9 @@ import NavBar from "../components/NavBar";
 import "./style.css";
 
 const Dashboard = ({ setAuth }) => {
-  const [name, setName] = useState("");
+  const [UserName, setUserName] = useState("");
+  const [beer_name, setBeer_name] = useState("");
+  const [beered, setBeered] = useState([]);
 
   async function getName() {
     try {
@@ -14,7 +16,7 @@ const Dashboard = ({ setAuth }) => {
         headers: { token: localStorage.token }
       });
       const parseRes = await response.json();
-      setName(parseRes.user_name);
+      setUserName(parseRes.user_name);
     } catch (error) {
       console.error(error.message);
     }
@@ -26,6 +28,19 @@ const Dashboard = ({ setAuth }) => {
     setAuth(false);
   };
 
+  const onSubmitForm = async (e) => {
+    e.preventDefault();
+    try {
+      const beers = await fetch(
+        `http://localhost:5000/beered/?beer_name=${beer_name}`
+      );
+      const parseRes = await beers.json();
+      setBeered(parseRes);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   useEffect(() => {
     getName();
   }, []);
@@ -34,7 +49,7 @@ const Dashboard = ({ setAuth }) => {
     <Fragment>
       <NavBar setAuth={setAuth} />
       <div className="text-center mb-10">
-        <h1> Welcome - {name}</h1>
+        <h1> Welcome - {UserName}</h1>
       </div>
       <div className="mx-auto text-center">
         <Link to="/listbeer">
@@ -42,6 +57,27 @@ const Dashboard = ({ setAuth }) => {
         </Link>
         <br />
         <button onClick={(e) => logOut(e)}>Log out</button>
+        <form className="mt-10" onSubmit={onSubmitForm}>
+          <input
+            type="text"
+            name="beer_name"
+            placeholder="Search for a beer"
+            value={beer_name}
+            onChange={(e) => setBeer_name(e.target.value)}
+          />
+          <button> Submit</button>
+        </form>
+        <div>
+          {beered.map((beers, i) => (
+            <div className="m-5" key={i}>
+              <h3>Beer Name- {beers.beer_name}</h3>
+              <h3>Brewery Name- {beers.brewery_name}</h3>
+              <h3>Style- {beers.style}</h3>
+              <h3>Description- {beers.description}</h3>
+            </div>
+          ))}
+        </div>
+        {!beered.length === 0 && <p>no results</p>}
       </div>
     </Fragment>
   );
