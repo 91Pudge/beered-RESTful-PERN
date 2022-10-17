@@ -34,6 +34,19 @@ app.get("/beer", async (req, res) => {
   }
 });
 
+app.get("/beered", async (req, res) => {
+  try {
+    const { beer_name } = req.query;
+    const beer = await pool.query(
+      "SELECT * FROM drinks WHERE beer_name LIKE $1",
+      [`%${beer_name}%`]
+    );
+    res.json(beer.rows[0]);
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 //get by id
 app.get("/beer/:id", async (req, res) => {
   try {
