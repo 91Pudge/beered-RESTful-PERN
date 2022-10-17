@@ -1,7 +1,8 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
-import NavBar from "../components/NavBar";
 import "./style.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Login = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -25,7 +26,14 @@ const Login = ({ setAuth }) => {
       });
 
       const parseRes = await response.json();
+
       localStorage.setItem("token", parseRes.token);
+
+      if (!parseRes.token) {
+        toast.error(parseRes);
+      } else {
+        toast.success("You logged in");
+      }
       setAuth(true);
     } catch (error) {
       console.error(error.message);
@@ -34,6 +42,7 @@ const Login = ({ setAuth }) => {
 
   return (
     <Fragment>
+      <ToastContainer />
       <nav className="navbar navbar-expand-lg navbar-light bg-warning">
         <a className="navbar-brand" href="/login">
           Beered
@@ -66,9 +75,6 @@ const Login = ({ setAuth }) => {
 
         <Link to="/register">Register</Link>
       </form>
-      {!localStorage.token ? null : (
-        <p className="error">Wrong password or email</p>
-      )}
     </Fragment>
   );
 };

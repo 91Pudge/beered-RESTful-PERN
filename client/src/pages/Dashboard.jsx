@@ -1,5 +1,6 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import NavBar from "../components/NavBar";
 import "./style.css";
 
@@ -21,6 +22,7 @@ const Dashboard = ({ setAuth }) => {
 
   const logOut = () => {
     localStorage.removeItem("token");
+    toast.error("Logged out");
     setAuth(false);
   };
 
@@ -30,7 +32,7 @@ const Dashboard = ({ setAuth }) => {
 
   return (
     <Fragment>
-      <NavBar />
+      <NavBar setAuth={setAuth} />
       <div className="text-center mb-10">
         <h1> Welcome - {name}</h1>
       </div>

@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const NavBar = ({ setAuth }) => {
   const logOut = () => {
     localStorage.removeItem("token");
+    toast.error("Logged out");
     setAuth(false);
   };
 

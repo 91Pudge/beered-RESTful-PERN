@@ -9,6 +9,9 @@ import {
   Route,
   Navigate
 } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+
+import "react-toastify/dist/ReactToastify.css";
 
 function App() {
   const setAuth = (boolean) => {
@@ -35,6 +38,18 @@ function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   return (
     <Fragment>
+      <ToastContainer
+        theme="dark"
+        autoClose={1000}
+        position="top-center"
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Router>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
@@ -70,13 +85,7 @@ function App() {
           />
           <Route
             path="/listbeer"
-            element={
-              !isAuthenticated ? (
-                <Navigate to="/login" />
-              ) : (
-                <ListBeer setAuth={setAuth} />
-              )
-            }
+            element={isAuthenticated ? <ListBeer setAuth={setAuth} /> : null}
           />
         </Routes>
       </Router>
