@@ -38,10 +38,10 @@ app.get("/beered", async (req, res) => {
   try {
     const { beer_name } = req.query;
     const beer = await pool.query(
-      "SELECT * FROM drinks WHERE beer_name LIKE $1",
+      "SELECT * FROM drinks WHERE beer_name ILIKE $1",
       [`%${beer_name}%`]
     );
-    res.json(beer.rows[0]);
+    res.json(beer.rows);
   } catch (error) {
     console.log(error);
   }
