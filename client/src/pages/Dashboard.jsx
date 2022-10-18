@@ -51,34 +51,27 @@ const Dashboard = ({ setAuth }) => {
       <div className="text-center mb-10">
         <h1> Welcome - {UserName}</h1>
       </div>
-      <div className="mx-auto text-center">
-        <Link to="/listbeer">
-          <button>Post a review</button>
-        </Link>
-        <br />
-        <button onClick={(e) => logOut(e)}>Log out</button>
-        <form className="mt-10" onSubmit={onSubmitForm}>
-          <input
-            type="text"
-            name="beer_name"
-            placeholder="Search for a beer"
-            value={beer_name}
-            onChange={(e) => setBeer_name(e.target.value)}
-          />
-          <button> Submit</button>
-        </form>
-        <div>
-          {beered.map((beers, i) => (
-            <div className="m-5" key={i}>
-              <h3>Beer Name- {beers.beer_name}</h3>
-              <h3>Brewery Name- {beers.brewery_name}</h3>
-              <h3>Style- {beers.style}</h3>
-              <h3>Description- {beers.description}</h3>
-            </div>
-          ))}
-        </div>
-        {!beered.length === 0 && <p>no results</p>}
+      <form onSubmit={onSubmitForm}>
+        <input
+          type="text"
+          name="beer_name"
+          placeholder="Search for a beer"
+          value={beer_name}
+          onChange={(e) => setBeer_name(e.target.value)}
+        />
+      </form>
+      <button id="submit">Submit</button>
+      <div id="card">
+        {beered.map((beers, i) => (
+          <div id="search" key={i}>
+            <h3>Beer Name- {beers.beer_name}</h3>
+            <h3>Brewery Name- {beers.brewery_name}</h3>
+            <h3>Style- {beers.style}</h3>
+            <h3>Description- {beers.description}</h3>
+          </div>
+        ))}
       </div>
+      {beered.length <= 0 && <p>no results</p>}
     </Fragment>
   );
 };

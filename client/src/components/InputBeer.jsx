@@ -62,13 +62,13 @@ const InputBeer = () => {
               />
               <p>DESCRIPTION:</p>
               <input
-                className="my-2"
+                className="my-2 mb-2"
                 type="text"
                 name="descriptions"
                 value={descriptions}
                 onChange={(e) => onChange(e)}
               ></input>
-
+              <br />
               <button>Submit</button>
             </article>
           </div>
