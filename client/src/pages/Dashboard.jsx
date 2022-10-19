@@ -1,31 +1,24 @@
 import React, { Fragment, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { toast } from "react-toastify";
 import NavBar from "../components/NavBar";
 import "./style.css";
 
 const Dashboard = ({ setAuth }) => {
-  const [UserName, setUserName] = useState("");
+  const [details, setDetails] = useState([]);
   const [beer_name, setBeer_name] = useState("");
   const [beered, setBeered] = useState([]);
 
-  async function getName() {
+  const getName = async () => {
     try {
-      const response = await fetch("http://localhost:5000/dashboard/", {
+      const res = await fetch("http://localhost:5000/dashboard/", {
         method: "GET",
         headers: { token: localStorage.token }
       });
-      const parseRes = await response.json();
-      setUserName(parseRes.user_name);
+      const parseRes = await res.json();
+      setDetails(parseRes);
     } catch (error) {
-      console.error(error.message);
+      console.log(error);
     }
-  }
-
-  const logOut = () => {
-    localStorage.removeItem("token");
-    toast.error("Logged out");
-    setAuth(false);
   };
 
   const onSubmitForm = async (e) => {
@@ -35,12 +28,14 @@ const Dashboard = ({ setAuth }) => {
         `http://localhost:5000/beered/?beer_name=${beer_name}`
       );
       const parseRes = await beers.json();
+
       setBeered(parseRes);
     } catch (error) {
       console.log(error.message);
     }
   };
 
+  let data = Object.values(details);
   useEffect(() => {
     getName();
   }, []);
@@ -48,10 +43,8 @@ const Dashboard = ({ setAuth }) => {
   return (
     <Fragment>
       <NavBar setAuth={setAuth} />
-      <div className="text-center mb-10">
-        <h1> Welcome - {UserName}</h1>
-      </div>
       <form onSubmit={onSubmitForm}>
+        <h1 id="submit">🔍</h1>{" "}
         <input
           type="text"
           name="beer_name"
@@ -60,18 +53,38 @@ const Dashboard = ({ setAuth }) => {
           onChange={(e) => setBeer_name(e.target.value)}
         />
       </form>
-      <button id="submit">Submit</button>
-      <div id="card">
-        {beered.map((beers, i) => (
-          <div id="search" key={i}>
-            <h3>Beer Name- {beers.beer_name}</h3>
-            <h3>Brewery Name- {beers.brewery_name}</h3>
-            <h3>Style- {beers.style}</h3>
-            <h3>Description- {beers.description}</h3>
-          </div>
-        ))}
+      <div id="welcome">
+        <p>Welcome- </p>
+        {data[1]}
+        <div id="email">
+          <p>{data[2]}</p>
+        </div>
       </div>
-      {beered.length <= 0 && <p>no results</p>}
+      <div id="card">
+        {beered
+          .slice()
+          .reverse()
+          .map((beers, i) => (
+            <div id="search" key={i}>
+              <div id="beer_title">
+                <p>{beers.beer_name}</p>
+              </div>
+
+              <p>{beers.brewery_name}</p>
+              <h3>{beers.style}</h3>
+              <p>Description</p>
+              <h3>{beers.description}</h3>
+            </div>
+          ))}
+        <div className="text-center">
+          <p>Don't see the beer you're looking for? </p>
+
+          <Link to="/listbeer">
+            {" "}
+            <p id="add">Add it here</p>
+          </Link>
+        </div>
+      </div>
     </Fragment>
   );
 };
