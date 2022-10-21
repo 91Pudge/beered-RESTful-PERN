@@ -4,22 +4,8 @@ import NavBar from "../components/NavBar";
 import "./style.css";
 
 const Dashboard = ({ setAuth }) => {
-  const [details, setDetails] = useState([]);
   const [beer_name, setBeer_name] = useState("");
   const [beered, setBeered] = useState([]);
-
-  const getName = async () => {
-    try {
-      const res = await fetch("http://localhost:5000/dashboard/", {
-        method: "GET",
-        headers: { token: localStorage.token }
-      });
-      const parseRes = await res.json();
-      setDetails(parseRes);
-    } catch (error) {
-      console.log(error);
-    }
-  };
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -28,21 +14,16 @@ const Dashboard = ({ setAuth }) => {
         `http://localhost:5000/beered/?beer_name=${beer_name}`
       );
       const parseRes = await beers.json();
-
       setBeered(parseRes);
     } catch (error) {
       console.log(error.message);
     }
   };
 
-  let data = Object.values(details);
-  useEffect(() => {
-    getName();
-  }, []);
-
   return (
     <Fragment>
       <NavBar setAuth={setAuth} />
+
       <form onSubmit={onSubmitForm}>
         <h1 id="submit">🔍</h1>{" "}
         <input
@@ -53,13 +34,7 @@ const Dashboard = ({ setAuth }) => {
           onChange={(e) => setBeer_name(e.target.value)}
         />
       </form>
-      <div id="welcome">
-        <p>Welcome- </p>
-        {data[1]}
-        <div id="email">
-          <p>{data[2]}</p>
-        </div>
-      </div>
+
       <div id="card">
         {beered
           .slice()
@@ -67,17 +42,24 @@ const Dashboard = ({ setAuth }) => {
           .map((beers, i) => (
             <div id="search" key={i}>
               <div id="beer_title">
-                <p>{beers.beer_name}</p>
+                <p id="name">
+                  <b>{beers.beer_name}</b>
+                </p>
               </div>
+              <h3>
+                <u>Brewery</u> {beers.brewery_name}
+              </h3>
 
-              <p>{beers.brewery_name}</p>
-              <h3>{beers.style}</h3>
-              <p>Description</p>
-              <h3>{beers.description}</h3>
+              <h3>
+                <u>Beer style:</u> {beers.style}
+              </h3>
+              <h3>
+                <u>Description:</u> {beers.descriptions}
+              </h3>
             </div>
           ))}
         <div className="text-center">
-          <p>Don't see the beer you're looking for? </p>
+          <p> Don't see the beer you're looking for?</p>
 
           <Link to="/listbeer">
             {" "}
