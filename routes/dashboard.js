@@ -20,12 +20,12 @@ router.post("/beers", authorisation, async (req, res) => {
   try {
     console.log(req.body);
     const { beer_name, brewery_name, style, descriptions } = req.body;
-    const newTodo = await pool.query(
+    const newBeer = await pool.query(
       'INSERT INTO "drinks" (user_id, beer_name, brewery_name, style, descriptions) VALUES ($1, $2, $3, $4, $5) RETURNING *',
       [req.user, beer_name, brewery_name, style, descriptions]
     );
 
-    res.json(newTodo.rows[0]);
+    res.json(newBeer.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
@@ -35,16 +35,34 @@ router.put("/beers/:id", authorisation, async (req, res) => {
   try {
     const { id } = req.params;
     const { beer_name, brewery_name, style, descriptions } = req.body;
-    const updateTodo = await pool.query(
+    const updateBeer = await pool.query(
       'UPDATE "drinks" SET beer_name = $1, brewery_name = $2, style = $3, descriptions = $4 WHERE review_id = $5 AND user_id = $6 RETURNING *',
       [beer_name, brewery_name, style, descriptions, id, req.user]
     );
 
-    if (updateTodo.rows.length === 0) {
-      return res.json("This todo is not yours");
+    if (updateBeer.rows.length === 0) {
+      return res.json("This review is not yours");
     }
 
-    res.json("Todo was updated");
+    res.json("Review was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+router.delete("/beers/:id", authorisation, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const deleteBeer = await pool.query(
+      "DELETE FROM drinks WHERE review_id = $1 AND user_id = $2 RETURNING *",
+      [id, req.user]
+    );
+
+    if (deleteBeer.rows.length === 0) {
+      return res.json("This review is not yours");
+    }
+
+    res.json("Review was deleted");
   } catch (err) {
     console.error(err.message);
   }
