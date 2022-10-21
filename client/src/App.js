@@ -3,6 +3,8 @@ import ListBeer from "./components/ListBeer.jsx";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Ownposts from "./pages/Ownposts.jsx";
+import Landing from "./pages/Landing.jsx";
 import {
   BrowserRouter as Router,
   Routes,
@@ -10,7 +12,6 @@ import {
   Navigate
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-
 import "react-toastify/dist/ReactToastify.css";
 
 function App() {
@@ -52,12 +53,21 @@ function App() {
       />
       <Router>
         <Routes>
-          <Route path="/" element={<Navigate to="/login" />} />
           <Route
             path="/login"
             element={
               !isAuthenticated ? (
                 <Login setAuth={setAuth} />
+              ) : (
+                <Navigate to="/dashboard" />
+              )
+            }
+          />
+          <Route
+            path="/"
+            element={
+              !isAuthenticated ? (
+                <Landing setAuth={setAuth} />
               ) : (
                 <Navigate to="/dashboard" />
               )
@@ -72,6 +82,10 @@ function App() {
                 <Navigate to="/login" />
               )
             }
+          />
+          <Route
+            path="/ownposts"
+            element={isAuthenticated ? <Ownposts setAuth={setAuth} /> : null}
           />
           <Route
             path="/dashboard"
