@@ -2,7 +2,6 @@ const express = require("express");
 const app = express();
 const PORT = process.env.PORT || 5000;
 var cors = require("cors");
-const path = require("path");
 const pool = require("./db");
 
 //middleware;
@@ -85,11 +84,6 @@ app.delete("/beer/:id", async (req, res) => {
   }
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "client/build/index.html"));
-});
-
-console.log(path.join(__dirname));
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
