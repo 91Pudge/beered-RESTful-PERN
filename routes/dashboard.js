@@ -31,4 +31,23 @@ router.post("/beers", authorisation, async (req, res) => {
   }
 });
 
+router.put("/beers/:id", authorisation, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { beer_name, brewery_name, style, descriptions } = req.body;
+    const updateTodo = await pool.query(
+      'UPDATE "drinks" SET beer_name = $1, brewery_name = $2, style = $3, descriptions = $4 WHERE review_id = $5 AND user_id = $6 RETURNING *',
+      [beer_name, brewery_name, style, descriptions, id, req.user]
+    );
+
+    if (updateTodo.rows.length === 0) {
+      return res.json("This todo is not yours");
+    }
+
+    res.json("Todo was updated");
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 module.exports = router;
