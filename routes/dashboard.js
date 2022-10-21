@@ -16,4 +16,19 @@ router.get("/", authorisation, async (req, res) => {
   }
 });
 
+router.post("/beers", authorisation, async (req, res) => {
+  try {
+    console.log(req.body);
+    const { beer_name, brewery_name, style, descriptions } = req.body;
+    const newTodo = await pool.query(
+      'INSERT INTO "drinks" (user_id, beer_name, brewery_name, style, descriptions) VALUES ($1, $2, $3, $4, $5) RETURNING *',
+      [req.user, beer_name, brewery_name, style, descriptions]
+    );
+
+    res.json(newTodo.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 module.exports = router;
