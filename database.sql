@@ -18,8 +18,3 @@ CREATE TABLE drinks(
     PRIMARY KEY (review_id),
     FOREIGN KEY (user_id) REFERENCES users(user_id)
   );
-
-
-insert into users(user_name, user_email, user_password) values ('j','j@example.com','qwerty');
-
-insert into drinks(user_id, beer_name, brewery_name, style, descriptions) values ('f68d935f-1028-46f5-bdbe-5d3c9bc56052','to the moon', 'to the moon', 'IPA', 'tasty');
