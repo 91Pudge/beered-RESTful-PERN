@@ -3,7 +3,6 @@ import ListBeer from "./components/ListBeer.jsx";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Ownposts from "./pages/Ownposts.jsx";
 import Landing from "./pages/Landing.jsx";
 import {
   BrowserRouter as Router,
@@ -13,6 +12,7 @@ import {
 } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Userreviews from "./pages/Userreviews.jsx";
 
 function App() {
   const setAuth = (boolean) => {
@@ -84,8 +84,8 @@ function App() {
             }
           />
           <Route
-            path="/ownposts"
-            element={isAuthenticated ? <Ownposts setAuth={setAuth} /> : null}
+            path="/user-reviews"
+            element={isAuthenticated ? <Userreviews setAuth={setAuth} /> : null}
           />
           <Route
             path="/dashboard"
