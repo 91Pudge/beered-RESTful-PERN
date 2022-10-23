@@ -6,7 +6,7 @@ const authorisation = require("../middleware/authorisation");
 router.get("/", authorisation, async (req, res) => {
   try {
     const user = await pool.query(
-      "SELECT u.user_name, d.review_id, d.descriptions FROM users AS u LEFT JOIN drinks AS d ON u.user_id = d.user_id WHERE u.user_id = $1",
+      "SELECT u.user_name, d.review_id, d.beer_name, d.brewery_name, d.style, d.descriptions FROM users AS u LEFT JOIN drinks AS d ON u.user_id = d.user_id WHERE u.user_id = $1",
       [req.user]
     );
     res.json(user.rows);
@@ -25,7 +25,7 @@ router.post("/beers", authorisation, async (req, res) => {
       [req.user, beer_name, brewery_name, style, descriptions]
     );
 
-    res.json(newBeer.rows[0]);
+    res.json(newBeer.rows);
   } catch (err) {
     console.error(err.message);
   }
@@ -50,7 +50,7 @@ router.put("/beers/:id", authorisation, async (req, res) => {
   }
 });
 
-router.delete("/beers/:id", authorisation, async (req, res) => {
+router.delete("/dashboard/beers/:id", authorisation, async (req, res) => {
   try {
     const { id } = req.params;
     const deleteBeer = await pool.query(
