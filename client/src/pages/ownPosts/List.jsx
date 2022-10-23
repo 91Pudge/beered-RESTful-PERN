@@ -7,8 +7,9 @@ const List = ({ setAuth }) => {
   const [des, setDes] = useState([]);
   const getter = async () => {
     try {
-      const res = await fetch("http://localhost:5000/beer", {
-        method: "GET"
+      const res = await fetch("http://localhost:5000/dashboard", {
+        method: "GET",
+        headers: { token: localStorage.token }
       });
       const data = await res.json();
       setDes(data);
@@ -18,7 +19,7 @@ const List = ({ setAuth }) => {
   };
   const Delete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/beer/${id}`, {
+      await fetch(`http://localhost:5000/dashboard/beers/${id}`, {
         method: "DELETE"
       });
       const fil = des.filter((item) => item.review_id !== id);
@@ -35,7 +36,6 @@ const List = ({ setAuth }) => {
   return (
     <Fragment>
       <NavBar setAuth={setAuth} />
-      {/* <Input /> */}
       <div>
         {des
           .slice()
@@ -65,7 +65,6 @@ const List = ({ setAuth }) => {
                 >
                   Delete
                 </button>
-                {/* <Edit de={de} /> */}
                 <Edit de={de} />
               </div>
             </article>
