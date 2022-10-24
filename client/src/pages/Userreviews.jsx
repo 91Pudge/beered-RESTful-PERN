@@ -1,10 +1,10 @@
 import { Fragment } from "react";
 import List from "./ownPosts/List";
 
-const Userreviews = () => {
+const Userreviews = ({ setAuth }) => {
   return (
     <Fragment>
-      <List />
+      <List setAuth={setAuth} />
     </Fragment>
   );
 };
