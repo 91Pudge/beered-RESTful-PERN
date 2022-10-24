@@ -66,7 +66,6 @@ const ListBeer = ({ setAuth }) => {
                 >
                   Delete
                 </button>
-                <EditBeer de={de} />
               </div>
             </article>
           ))}
