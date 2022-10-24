@@ -30,7 +30,7 @@ const NavBar = ({ setAuth }) => {
   }, []);
 
   return (
-    <div className="">
+    <div className="mb-3">
       <nav className="navbar navbar-expand-lg navbar-light bg-warning ">
         <a className="navbar-brand" href="/dashboard">
           Beered
@@ -50,12 +50,12 @@ const NavBar = ({ setAuth }) => {
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
               <a className="nav-link" href="/listbeer">
-                Review a beer <span className="sr-only">(current)</span>
+                Review beer <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item active">
               <a className="nav-link" href="/user-reviews">
-                User Reviews <span className="sr-only">(current)</span>
+                {name}'s reviews <span className="sr-only">(current)</span>
               </a>
             </li>
           </ul>
