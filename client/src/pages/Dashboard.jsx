@@ -23,48 +23,50 @@ const Dashboard = ({ setAuth }) => {
   return (
     <Fragment>
       <NavBar setAuth={setAuth} />
+      <div>
+        <form onSubmit={onSubmitForm}>
+          <h1 id="submit">🔍</h1>{" "}
+          <input
+            type="text"
+            name="beer_name"
+            placeholder="Search for a beer"
+            value={beer_name}
+            onChange={(e) => setBeer_name(e.target.value)}
+          />
+        </form>
 
-      <form onSubmit={onSubmitForm}>
-        <h1 id="submit">🔍</h1>{" "}
-        <input
-          type="text"
-          name="beer_name"
-          placeholder="Search for a beer"
-          value={beer_name}
-          onChange={(e) => setBeer_name(e.target.value)}
-        />
-      </form>
-
-      <div id="card">
-        {beered
-          .slice()
-          .reverse()
-          .map((beers, i) => (
-            <div id="search" key={i}>
-              <div id="beer_title">
-                <p id="name">
-                  <b>{beers.beer_name}</b>
-                </p>
+        <div>
+          {beered
+            .slice()
+            .reverse()
+            .map((beers, i) => (
+              <div className="card w-7/12 mx-auto rounded" key={i}>
+                <div className="mt-2">
+                  <p>Beer name:</p>
+                  {beers.beer_name}
+                </div>
+                <div className="mt-2">
+                  <p>Brewery name: </p>
+                  {beers.brewery_name}
+                </div>
+                <div className="mt-2">
+                  <p>Style: </p>
+                  {beers.style}
+                </div>
+                <div className="mt-2 mb-2">
+                  <p>Beer description: </p>
+                  {beers.descriptions}
+                </div>
               </div>
-              <h3>
-                <u>Brewery</u> {beers.brewery_name}
-              </h3>
+            ))}
+          <div className="text-center">
+            <p> Don't see the beer you're looking for?</p>
 
-              <h3>
-                <u>Beer style:</u> {beers.style}
-              </h3>
-              <h3>
-                <u>Description:</u> {beers.descriptions}
-              </h3>
-            </div>
-          ))}
-        <div className="text-center">
-          <p> Don't see the beer you're looking for?</p>
-
-          <Link to="/listbeer">
-            {" "}
-            <p id="add">Add it here</p>
-          </Link>
+            <Link to="/listbeer">
+              {" "}
+              <p id="add">Add it here</p>
+            </Link>
+          </div>
         </div>
       </div>
     </Fragment>
