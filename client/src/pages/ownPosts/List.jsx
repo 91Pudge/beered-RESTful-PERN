@@ -19,7 +19,7 @@ const List = ({ setAuth }) => {
   };
   const Delete = async (id) => {
     try {
-      await fetch(`http://localhost:5000/dashboard/beers/${id}`, {
+      await fetch(`http://localhost:5000/beer/${id}`, {
         method: "DELETE"
       });
       const fil = des.filter((item) => item.review_id !== id);
