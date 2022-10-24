@@ -1,7 +1,6 @@
 import "./ListBeer.css";
 import React, { useState, useEffect, Fragment } from "react";
 import Input from "./InputBeer";
-import EditBeer from "./EditBeer";
 import NavBar from "./NavBar";
 
 const ListBeer = ({ setAuth }) => {
@@ -13,17 +12,6 @@ const ListBeer = ({ setAuth }) => {
       });
       const data = await res.json();
       setDes(data);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-  const Delete = async (id) => {
-    try {
-      await fetch(`http://localhost:5000/beer/${id}`, {
-        method: "DELETE"
-      });
-      const fil = des.filter((item) => item.review_id !== id);
-      setDes(fil);
     } catch (error) {
       console.log(error);
     }
@@ -60,12 +48,6 @@ const ListBeer = ({ setAuth }) => {
                   <p>Beer description: </p>
                   {de.descriptions}
                 </div>
-                <button
-                  className="mx-auto"
-                  onClick={() => Delete(de.review_id)}
-                >
-                  Delete
-                </button>
               </div>
             </article>
           ))}
