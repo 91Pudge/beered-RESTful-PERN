@@ -11,7 +11,7 @@ body{
 }
 
 #search{
-    padding: 20px;
+    padding: 5px;
     margin: auto;
     margin-bottom: 20px;
     outline: 4px solid black;
@@ -21,14 +21,6 @@ input{
     display: block;
     text-align: center;
     margin:auto;
-}
-
-#card{
-    padding: 100px;
-    margin: auto;
-    width: 500px;
-    border-bottom: transparent;
-    box-shadow: 3px;
 }
 
 #welcome{
@@ -42,4 +34,19 @@ input{
 
 #email{
     font-size: 10px;
+}
+
+.navbar-nav {
+
+    width:100%;
+    margin: 0;
+}
+
+#find {
+    margin: auto;
+    align-items: center;
+}
+
+#name{
+  text-align: center;
 }
