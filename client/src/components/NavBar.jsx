@@ -32,9 +32,9 @@ const NavBar = ({ setAuth }) => {
   return (
     <div className="mb-3">
       <nav className="navbar navbar-expand-lg navbar-light bg-warning ">
-        <a className="navbar-brand" href="/dashboard">
+        <Link className="navbar-brand" to="/dashboard">
           Beered
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -49,14 +49,14 @@ const NavBar = ({ setAuth }) => {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link" href="/listbeer">
+              <Link className="nav-link" to="/listbeer">
                 Review beer <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
             <li className="nav-item active">
-              <a className="nav-link" href="/user-reviews">
+              <Link className="nav-link" to="/user-reviews">
                 {name}'s reviews <span className="sr-only">(current)</span>
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
