@@ -1,10 +1,11 @@
-import React, { Fragment, useState, useEffect } from "react";
+import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import "./style.css";
 
 const Dashboard = ({ setAuth }) => {
   const [beer_name, setBeer_name] = useState("");
+  const [noBeer, setNoBeer] = useState("");
   const [beered, setBeered] = useState([]);
 
   const onSubmitForm = async (e) => {
@@ -14,6 +15,9 @@ const Dashboard = ({ setAuth }) => {
         `http://localhost:5000/beered/?beer_name=${beer_name}`
       );
       const parseRes = await beers.json();
+      if (parseRes.length === 0) {
+        setNoBeer("Don't see the beer you're looking for?");
+      }
       setBeered(parseRes);
     } catch (error) {
       console.log(error.message);
@@ -59,12 +63,12 @@ const Dashboard = ({ setAuth }) => {
                 </div>
               </div>
             ))}
-          <div className="text-center">
-            <p> Don't see the beer you're looking for?</p>
+          <div id="beer-warning">
+            {noBeer}
 
             <Link to="/listbeer">
               {" "}
-              <p id="add">Add it here</p>
+              <p id="add">Add a beer review</p>
             </Link>
           </div>
         </div>
