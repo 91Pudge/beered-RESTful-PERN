@@ -1,10 +1,10 @@
-.input-card{
+.input-card {
     margin-top: 5px;
-    width: 300px;
+    width: 40%;
     box-shadow: rgba(0, 35, 35, 0.35) 1px 1px ;
     text-align: center;
     margin: auto;
-    background-color:rgb(242, 202, 23);
+    background-color:rgb(244, 190, 11);
     border-radius: 5px;
 }
 
@@ -16,8 +16,13 @@ button{
     width: 110px;
 } 
 
-h1{
-   font-size: x-large;
-    text-align: center;
-    margin-bottom: 30px;
+p{
+    margin: 5px;
+    text-align: left;
+    font-size: 15px;
+    color:grey;
+}
+
+textarea{
+    width:80%;
 }

@@ -38,46 +38,43 @@ const InputBeer = () => {
   return (
     <Fragment>
       <form onSubmit={handleSubmit}>
-        <div className="flex-input">
-          <div className="input-card">
-            <article>
-              <header>Add Beer</header>
-              <p>BEER NAME:</p>
-              <input
-                className="my-2"
-                type="text"
-                name="beer_name"
-                value={beer_name}
-                onChange={(e) => onChange(e)}
-              />
-              <p>BREWERY NAME:</p>
-              <input
-                className="my-2"
-                type="text"
-                name="brewery_name"
-                value={brewery_name}
-                onChange={(e) => onChange(e)}
-              />
-              <p>STYLE: </p>
-              <input
-                className="my-2"
-                type="text"
-                name="style"
-                value={style}
-                onChange={(e) => onChange(e)}
-              />
-              <p>DESCRIPTION:</p>
-              <input
-                className="my-2 mb-2"
-                type="text"
-                name="descriptions"
-                value={descriptions}
-                onChange={(e) => onChange(e)}
-              ></input>
-              <br />
-              <button>Submit</button>
-            </article>
-          </div>
+        <div id="inputs" className="input-card">
+          <header>Add new beer</header>
+          <input
+            className="my-2"
+            placeholder="Beer name:"
+            type="text"
+            name="beer_name"
+            value={beer_name}
+            onChange={(e) => onChange(e)}
+          />
+          <input
+            className="my-2"
+            placeholder="Brewery name:"
+            type="text"
+            name="brewery_name"
+            value={brewery_name}
+            onChange={(e) => onChange(e)}
+          />
+          <input
+            className="my-2"
+            type="text"
+            placeholder="Style:"
+            name="style"
+            value={style}
+            onChange={(e) => onChange(e)}
+          />
+          <textarea
+            placeholder="Beer description:"
+            rows="4"
+            cols="45"
+            type="text"
+            name="descriptions"
+            value={descriptions}
+            onChange={(e) => onChange(e)}
+          />
+          <br />
+          <button>Submit</button>
         </div>
       </form>
     </Fragment>
