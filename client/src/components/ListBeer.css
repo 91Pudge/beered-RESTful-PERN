@@ -2,9 +2,14 @@
     display: flex;
     justify-content: space-evenly;
     box-shadow: rgba(0, 35, 35, 0.35) 1px 1px 1px 1px;
-    margin-top:10px;
+    margin-top: 10px;
     margin-bottom: 20px;
-    text-align: center;
-    width:60%;
-    height:60%;
+    width: 50%;
+    height: 60%;
+}
+
+#image1{
+    width: 40%;
+    margin: auto;
+    padding: 5px;
 }
