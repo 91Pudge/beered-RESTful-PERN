@@ -1,6 +1,7 @@
-import "/Users/josh/Desktop/beered-RESTful-PERN/client/src/components/ListBeer.css";
+import "../../components/ListBeer.css";
+import NavBar from "../../components/NavBar";
 import React, { useState, useEffect, Fragment } from "react";
-import NavBar from "/Users/josh/Desktop/beered-RESTful-PERN/client/src/components/NavBar.jsx";
+
 import Edit from "./Edit";
 
 const List = ({ setAuth }) => {
@@ -27,6 +28,7 @@ const List = ({ setAuth }) => {
         method: "DELETE"
       });
       const fil = await des.filter((item) => item.review_id !== id);
+      window.location.href = "/user-reviews";
       setDes(fil);
     } catch (error) {
       console.log(error);
