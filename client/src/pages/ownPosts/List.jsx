@@ -37,6 +37,7 @@ const List = ({ setAuth }) => {
     <Fragment>
       <NavBar setAuth={setAuth} />
       <div>
+        <h1>My reviews</h1>
         {des
           .slice()
           .reverse()
