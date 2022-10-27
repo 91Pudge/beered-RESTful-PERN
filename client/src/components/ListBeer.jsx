@@ -34,20 +34,29 @@ const ListBeer = ({ setAuth }) => {
               <div className="card w-7/12 mx-auto">
                 <div className="flex flex-col">
                   <p>
-                    <u>Beer name:</u>&nbsp;
+                    <b>
+                      <u>Beer name:</u>&nbsp;
+                    </b>
                     <b>{de.beer_name}</b>
                   </p>
                   <p>
-                    <u>Brewery name:</u>&nbsp;
+                    <b>
+                      <u>Brewery name:</u>&nbsp;
+                    </b>
                     <b> {de.brewery_name} </b>
                   </p>
                   <p>
-                    <u>Style:</u>&nbsp;
+                    <b>
+                      <u>Style:</u>&nbsp;
+                    </b>
                     <b>{de.style} </b>
                   </p>
                   <p>
                     <div>
-                      <u>Beer description</u>:&nbsp;
+                      <b>
+                        {" "}
+                        <u>Beer description</u>&nbsp;
+                      </b>
                       <br />
                       <b>{de.descriptions}</b>
                     </div>
