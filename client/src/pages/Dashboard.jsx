@@ -10,7 +10,9 @@ const Dashboard = ({ setAuth }) => {
   const onSubmitForm = async (e) => {
     e.preventDefault();
     if (beer_name === "") {
-      return setNoBeer("Use the search box above to search for a beer.");
+      return setNoBeer(
+        "No user input, Use the search box below to search for a beer."
+      );
     }
     try {
       const beers = await fetch(
