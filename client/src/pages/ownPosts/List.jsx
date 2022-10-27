@@ -43,22 +43,27 @@ const List = ({ setAuth }) => {
           .reverse()
           .map((de) => (
             <article key={de.review_id}>
-              <div className="card w-7/12 mx-auto rounded">
-                <div className="mt-2">
-                  <p>Beer name:</p>
-                  {de.beer_name}
-                </div>
-                <div className="mt-2">
-                  <p>Brewery name: </p>
-                  {de.brewery_name}
-                </div>
-                <div className="mt-2">
-                  <p>Style: </p>
-                  {de.style}
-                </div>
-                <div className="mt-2 mb-2">
-                  <p>Beer description: </p>
-                  {de.descriptions}
+              <div className="card mx-auto">
+                <div className="flex flex-col">
+                  <p>
+                    <u>Beer name:</u>&nbsp;
+                    <b>{de.beer_name}</b>
+                  </p>
+                  <p>
+                    <u>Brewery name:</u>&nbsp;
+                    <b> {de.brewery_name} </b>
+                  </p>
+                  <p>
+                    <u>Style:</u>&nbsp;
+                    <b>{de.style} </b>
+                  </p>
+                  <p>
+                    <div>
+                      <u>Beer description</u>:&nbsp;
+                      <br />
+                      <b>{de.descriptions}</b>
+                    </div>
+                  </p>
                 </div>
                 <button
                   className="mx-auto"

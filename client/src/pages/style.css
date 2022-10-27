@@ -15,12 +15,14 @@ body{
     margin: auto;
     margin-bottom: 20px;
     outline: 4px solid black;
+    width: 30%;
 }
 
 input{
     display: block;
-    text-align: center;
-    margin:auto;
+    text-align: left;
+    margin: auto;
+    width:  80%;
 }
 
 #welcome{
@@ -37,24 +39,27 @@ input{
 }
 
  #beer-warning{
-  background-color: white;
-  padding: 20px;
-  margin:  100px auto;
-  border:1px solid black;
-  width:30%;
-  height:100%;
-  text-align: center;
+    padding: 20px;
+    margin:  auto;
+    width:  30%;
+    text-align: center;
 }
-/* .navbar-nav {
-    width:100%;
+
+h1{
+    font-size: x-large;
+    text-align: center;
+    margin-bottom: 30px;
+ }
+
+.navbar-nav {
+    width:  100%;
     margin: 0;
-} */
+} 
 
-/* #find {
-    margin: auto;
-    align-items: center;
-} */
+#name, #landing-message{
+    text-align: center;
+}
 
-/* #name{
-  text-align: center;
-} */
+#photo{
+    position: relative;
+}
