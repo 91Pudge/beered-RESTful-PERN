@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import { Link } from "react-router-dom";
 import NavBar from "../components/NavBar";
-import "./style.css";
 
 const Dashboard = ({ setAuth }) => {
   const [beer_name, setBeer_name] = useState("");
@@ -10,13 +9,16 @@ const Dashboard = ({ setAuth }) => {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
+    if (beer_name === "") {
+      return setNoBeer("Use the search box above to search for a beer.");
+    }
     try {
       const beers = await fetch(
         `http://localhost:5000/beered/?beer_name=${beer_name}`
       );
       const parseRes = await beers.json();
       if (parseRes.length === 0) {
-        setNoBeer("Don't see the beer you're looking for?");
+        return setNoBeer("We couldn't find a beer review");
       }
       setBeered(parseRes);
     } catch (error) {
@@ -27,10 +29,19 @@ const Dashboard = ({ setAuth }) => {
   return (
     <Fragment>
       <NavBar setAuth={setAuth} />
+      <div id="beer-warning">
+        <b>{noBeer}</b>
+
+        <Link to="/listbeer">
+          {" "}
+          <p id="add">Add a beer review</p>
+        </Link>
+      </div>
       <div>
         <form onSubmit={onSubmitForm}>
           <h1 id="submit">🔍</h1>{" "}
           <input
+            id="search"
             type="text"
             name="beer_name"
             placeholder="Search for a beer"
@@ -63,14 +74,6 @@ const Dashboard = ({ setAuth }) => {
                 </div>
               </div>
             ))}
-          <div id="beer-warning">
-            {noBeer}
-
-            <Link to="/listbeer">
-              {" "}
-              <p id="add">Add a beer review</p>
-            </Link>
-          </div>
         </div>
       </div>
     </Fragment>
