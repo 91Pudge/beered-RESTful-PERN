@@ -14,8 +14,8 @@ app.use("/dashboard", require("./routes/dashboard"));
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "/client/build")));
 }
-
-app.post("beer", async (req, res) => {
+console.log();
+app.post("/beer", async (req, res) => {
   try {
     const { beer_name, brewery_name, style, descriptions } = req.body;
     const newEntry = await pool.query(
@@ -29,7 +29,7 @@ app.post("beer", async (req, res) => {
 });
 
 //getall
-app.get("beer", async (req, res) => {
+app.get("/beer", async (req, res) => {
   try {
     const getallEntry = await pool.query('SELECT * FROM "drinks"');
     res.json(getallEntry.rows);
