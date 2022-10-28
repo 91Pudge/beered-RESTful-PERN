@@ -7,6 +7,7 @@ const devConfig = {
   database: process.env.PG_DATABASE,
   port: process.env.PG_PORT
 };
+
 const proConfig = process.env.DATABASE_URL;
 
 const pool = new Pool(
