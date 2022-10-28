@@ -11,7 +11,7 @@ const Edit = ({ de }) => {
     try {
       const body = { beer_name, brewery_name, style, descriptions };
 
-      await fetch(`beer/${de.review_id}`, {
+      await fetch(`/beer/${de.review_id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)

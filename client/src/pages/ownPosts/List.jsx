@@ -9,7 +9,7 @@ const List = ({ setAuth }) => {
   const [review, setReview] = useState("");
   const getter = async () => {
     try {
-      const res = await fetch("dashboard", {
+      const res = await fetch("/dashboard", {
         method: "GET",
         headers: { token: localStorage.token }
       });
@@ -24,7 +24,7 @@ const List = ({ setAuth }) => {
   };
   const Delete = async (id) => {
     try {
-      await fetch(`beer/${id}`, {
+      await fetch(`/beer/${id}`, {
         method: "DELETE"
       });
       const fil = await des.filter((item) => item.review_id !== id);
