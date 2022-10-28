@@ -3,7 +3,7 @@ const router = require("express").Router();
 const pool = require("../db");
 const authorisation = require("../middleware/authorisation");
 
-router.get("/", authorisation, async (req, res) => {
+router.get("", authorisation, async (req, res) => {
   try {
     const user = await pool.query(
       "SELECT u.user_name, d.review_id, d.beer_name, d.brewery_name, d.style, d.descriptions FROM users AS u LEFT JOIN drinks AS d ON u.user_id = d.user_id WHERE u.user_id = $1",
@@ -16,7 +16,7 @@ router.get("/", authorisation, async (req, res) => {
   }
 });
 
-router.post("/beers", authorisation, async (req, res) => {
+router.post("beers", authorisation, async (req, res) => {
   try {
     console.log(req.body);
     const { beer_name, brewery_name, style, descriptions } = req.body;
@@ -31,7 +31,7 @@ router.post("/beers", authorisation, async (req, res) => {
   }
 });
 
-router.put("/beers/:id", authorisation, async (req, res) => {
+router.put("beers/:id", authorisation, async (req, res) => {
   try {
     const { id } = req.params;
     const { beer_name, brewery_name, style, descriptions } = req.body;

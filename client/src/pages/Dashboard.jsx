@@ -15,7 +15,7 @@ const Dashboard = ({ setAuth }) => {
       );
     }
     try {
-      const beers = await fetch(`/beered/?beer_name=${beer_name}`);
+      const beers = await fetch(`beered/?beer_name=${beer_name}`);
       const parseRes = await beers.json();
       if (parseRes.length === 0) {
         return setNoBeer("We couldn't find a beer review");
