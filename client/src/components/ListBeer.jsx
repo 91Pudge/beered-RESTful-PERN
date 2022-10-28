@@ -7,7 +7,7 @@ const ListBeer = ({ setAuth }) => {
   const [des, setDes] = useState([]);
   const getter = async () => {
     try {
-      const res = await fetch("http://localhost:5000/beer", {
+      const res = await fetch("/beer", {
         method: "GET"
       });
       const data = await res.json();

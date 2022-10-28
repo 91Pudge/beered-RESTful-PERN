@@ -19,7 +19,7 @@ const Login = ({ setAuth }) => {
     e.preventDefault();
     try {
       const body = { email, password };
-      const response = await fetch("http://localhost:5000/auth/login", {
+      const response = await fetch("/auth/login", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
@@ -44,7 +44,7 @@ const Login = ({ setAuth }) => {
     <Fragment>
       <ToastContainer />
       <nav className="navbar navbar-expand-lg navbar-light bg-warning">
-        <a className="navbar-brand" href="/login">
+        <a className="navbar-brand mx-auto" href="/login">
           Beered
         </a>
       </nav>

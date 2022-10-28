@@ -23,7 +23,7 @@ const InputBeer = () => {
       myHeaders.append("Content-Type", "application/json");
       myHeaders.append("token", localStorage.token);
 
-      await fetch("http://localhost:5000/dashboard/beers", {
+      await fetch("/dashboard/beers", {
         method: "POST",
         headers: myHeaders,
         body: JSON.stringify(body)
