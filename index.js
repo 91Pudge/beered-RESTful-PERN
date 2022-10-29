@@ -12,9 +12,9 @@ app.use("/auth", require("./routes/jwtAuth"));
 app.use("/dashboard", require("./routes/dashboard"));
 
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "client/build")));
+  app.use(express.static(path.join(__dirname, "/client/build/index.html")));
 }
-console.log();
+console.log(__dirname, "/client/build");
 app.post("/beer", async (req, res) => {
   try {
     const { beer_name, brewery_name, style, descriptions } = req.body;
